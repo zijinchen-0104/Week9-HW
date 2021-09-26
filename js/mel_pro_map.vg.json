@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 550,
+    "title": "Melbourne Suburb Property Sales Price",
+    "projection": {"type": "equirectangular",
+    "center": [145.1, -37.95],
+    "scale": 25000},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/zijinchen-0104/FIT3179-/main/Assignment%202/AUS_adm2.json",
+          "format": {"type": "topojson", "feature": "AUS_adm2"}
+        },
+        "mark": {"type": "geoshape", "fill": "#eee", "stroke": "#757575", "strokeWidth": 0.5}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/zijinchen-0104/FIT3179-/main/Assignment%202/cleaned_map_data.csv"
+        },
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "lon", "type": "quantitative"},
+          "latitude": {"field": "lat", "type": "quantitative"},
+          "color": {
+            "field": "price",
+            "type": "quantitative",
+            "scale": {"type": "threshold","domain":[1000000,8000000],"scheme": "reds"},
+            "legend": {"format": ".1s"}
+          },
+          "tooltip": [
+   {"field": "price", "type": "quantitative", "title": "properity price"},
+   {"field": "lon", "type": "quantitative","title": "longotide"},
+   {"field": "lat", "type": "quantitative","title": "latitude"},
+   {"field": "suburb", "type": "nominal","title": "suburb"}
+   ]
+          }
+      
+        }
+      
+    ]
+  }

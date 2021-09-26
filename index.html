@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+  
+</head>
+<body>
+  
+<div id="aus_property_map"></div>
+
+<script type="text/javascript">
+
+  var spec2 = "js/mel_pro_map.vg.json";
+  vegaEmbed('#aus_property_map', spec2).then(function(result) {
+  }).catch(console.error);
+</script>
+
+</body>
+</html>
